@@ -1,7 +1,7 @@
 <?php
 /**
- * Name: oauthprovider
- * Description: Manage apps that support "log in with Friendica"
+ * Name: Manage OAuth clients
+ * Description: Manage apps that use Friendica as an OAuth provider
  * Version: 0.1
  * Author: Ben Millwood <https://superstimul.us/profile/meblin>
  * Maintainer: Ben Millwood <https://superstimul.us/profile/meblin>
