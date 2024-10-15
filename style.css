@@ -1,0 +1,7 @@
+.oauthprovider-app {
+    margin: 0.5em;
+}
+.oauthprovider-app td, .oauthprovider-app th {
+    border: 1px solid;
+    padding: 0.1em 0.5em;
+}

@@ -8,12 +8,18 @@
  * Status: Unsupported
  */
 
+use Friendica\Core\Hook;
 use Friendica\Core\Logger;
 use Friendica\Core\Renderer;
 use Friendica\Database\DBA;
 
 function oauthprovider_install() {
+    Hook::register('head', __FILE__, 'oauthprovider_head');
     Logger::notice("oauthprovider installed");
+}
+
+function oauthprovider_head() {
+    \Friendica\DI::page()->registerStylesheet("addon/oauthprovider/style.css");
 }
 
 function oauthprovider_uninstall() {
@@ -31,7 +37,7 @@ function oauthprovider_addon_admin(string &$o) {
     $o = Renderer::replaceMacros($t, [
         '$head_name' => 'Name',
         '$head_website' => 'Website',
-        '$optional' => ' (optional)',
+        '$optional' => '(optional)',
         '$head_client_id' => 'Client ID',
         '$head_client_secret' => 'Client secret',
         '$head_redirect_uri' => 'Redirect URI',
