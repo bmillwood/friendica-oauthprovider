@@ -5,3 +5,8 @@
     border: 1px solid;
     padding: 0.1em 0.5em;
 }
+.oauthprovider-app ul {
+    list-style-type: none;
+    padding: 0.2em;
+    margin: 0;
+}

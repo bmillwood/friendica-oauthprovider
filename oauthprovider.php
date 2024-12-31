@@ -56,10 +56,18 @@ function oauthprovider_addon_admin_post() {
         DBA::delete("application", ["name" => $_POST["delete"]]);
         return;
     } else {
-        $copy_keys = ["name", "redirect_uri", "website", "scopes"];
+        $copy_keys = ["name", "redirect_uri", "website"];
         foreach($copy_keys as $k) {
             $app[$k] = $_POST[$k];
         }
+        $scopes = [];
+        foreach(["read", "write", "follow", "push"] as $scope) {
+            $app[$scope] = isset($_POST[$scope]) && $_POST[$scope] == "on";
+            if($app[$scope]) {
+                $scopes[] = $scope;
+            }
+        }
+        $app["scopes"] = implode(",", $scopes);
         $app["client_id"] = base64url(random_bytes(24));
         $app["client_secret"] = base64url(random_bytes(32));
         if (!DBA::insert("application", $app)) {

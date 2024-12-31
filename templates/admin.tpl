@@ -3,7 +3,14 @@
     <tr><th>{{$head_name}}</th><td><input type="text" name="name"></td></tr>
     <tr><th>{{$head_website}}</th><td><input type="text" name="website" placeholder="{{$optional}}"></td></tr>
     <tr><th>{{$head_redirect_uri}}</th><td><input type="text" name="redirect_uri"></td></tr>
-    <tr><th>{{$head_scopes}}</th><td><input type="text" name="scopes"></td></tr>
+    <tr><th>{{$head_scopes}}</th><td>
+        <ul>
+            <li><label for="scope_read"><input id="scope_read" type="checkbox" name="read" checked="checked"> Read</label></li>
+            <li><label for="scope_write"><input id="scope_write" type="checkbox" name="write"> Write</label></li>
+            <li><label for="scope_follow"><input id="scope_follow" type="checkbox" name="follow"> Follow</label></li>
+            <li><label for="scope_push"><input id="scope_push" type="checkbox" name="push"> Push</label></li>
+        </ul>
+    </td></tr>
 </table>
 <button type="submit">{{$submit}}</button></td>
 
