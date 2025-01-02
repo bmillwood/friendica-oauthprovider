@@ -67,7 +67,7 @@ function oauthprovider_addon_admin_post() {
                 $scopes[] = $scope;
             }
         }
-        $app["scopes"] = implode(",", $scopes);
+        $app["scopes"] = implode(" ", $scopes);
         $app["client_id"] = base64url(random_bytes(24));
         $app["client_secret"] = base64url(random_bytes(32));
         if (!DBA::insert("application", $app)) {
